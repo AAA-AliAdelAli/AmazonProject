@@ -5,28 +5,28 @@ let productsHtml = '';
 
 
 
-products.forEach((products) => {
+products.forEach((product) => {
     productsHtml += `
     <div class="product-container">
             <div class="product-image-container">
                 <img class="product-image"
-                src="${products.image}">
+                src="${product.image}">
                 </div>
 
             <div class="product-name limit-text-to-2-lines">
-                ${products.name}
+                ${product.name}
             </div>
 
             <div class="product-rating-container">
                 <img class="product-rating-stars"
-                src="${products.getStarsUrl()}">
+                src="${product.getStarsUrl()}">
                 <div class="product-rating-count link-primary">
-                ${products.rating.count}
+                ${product.rating.count}
                 </div>
                 </div>
                 
             <div class="product-price">
-            ${products.getPrice()}
+            ${product.getPrice()}
             </div>
             
             <div class="product-quantity-container">
@@ -43,6 +43,8 @@ products.forEach((products) => {
                 <option value="10">10</option>
                 </select>
                 </div>
+                    
+                ${product.extraInfoHTML()}
 
                 <div class="product-spacer"></div>
                 
@@ -52,7 +54,7 @@ products.forEach((products) => {
             </div>
 
             <button class="add-to-cart-button button-primary js-add-to-cart"
-                data-product-id= "${products.id}">
+                data-product-id= "${product.id}">
                 Add to Cart
             </button>
         </div>
